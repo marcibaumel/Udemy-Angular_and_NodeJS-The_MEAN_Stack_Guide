@@ -1,4 +1,26 @@
-<textarea rows="6" [(ngModel)]="newPost"></textarea>
-<hr>
-<button (click)="onAddPost()">Save Post</button>
-<p>{{newPost}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <mat-card>
+    <mat-form-field>
+      <textarea matInput rows="6" [(ngModel)]="newPost"></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onAddPost()">Save Post</button>
+  </mat-card>
+
+  <br>
+  <p>{{newPost}}</p>
+</body>
+</html>
+
+
