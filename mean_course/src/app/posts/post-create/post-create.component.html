@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <mat-card>
+      <form>
+        <mat-form-field>
+          <input matInput type="text" [(ngModel)]="enteredTitle" />
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="onAddPost()">
+          Save Post
+        </button>
+      </form>
+    </mat-card>
 
-  <mat-card>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="enteredTitle">
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
-    </mat-form-field>
-    <button
-      mat-raised-button
-      color="accent"
-      (click)="onAddPost()">Save Post</button>
-  </mat-card>
-
-  <br>
-
-</body>
+    <br />
+  </body>
 </html>
-
-
