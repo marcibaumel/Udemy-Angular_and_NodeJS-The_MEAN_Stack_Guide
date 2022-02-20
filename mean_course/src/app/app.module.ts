@@ -13,6 +13,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponenet } from './posts/post-list/post-list.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
