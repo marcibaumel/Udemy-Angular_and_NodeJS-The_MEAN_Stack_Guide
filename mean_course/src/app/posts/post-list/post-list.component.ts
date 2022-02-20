@@ -8,13 +8,7 @@ import { Post } from "../post.model";
 })
 
 export class PostListComponenet{
-  /*
-  posts = [
-    {title: 'First post', content: 'First post content'},
-    {title: 'Second post', content: 'Second post content'},
-    {title: 'Third post', content: 'Third post content'}
-  ]
-  */
+
  @Input() posts: Post[] = [];
 }
 
