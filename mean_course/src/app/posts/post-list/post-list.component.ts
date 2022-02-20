@@ -16,9 +16,11 @@ export class PostListComponenet implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.posts = this.postServices.getPosts();
-    this.postsSub = this.postServices.getPostUpdateListener().subscribe((posts: Post[]) => {
-      this.posts = posts;
-    });
+    this.postsSub = this.postServices
+      .getPostUpdateListener()
+      .subscribe((posts: Post[]) => {
+        this.posts = posts;
+      });
   }
 
   ngOnDestroy(): void {
