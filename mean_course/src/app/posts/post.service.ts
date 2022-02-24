@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 export class PostServices {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
+
   constructor(private http: HttpClient) {}
 
   getPosts() {
