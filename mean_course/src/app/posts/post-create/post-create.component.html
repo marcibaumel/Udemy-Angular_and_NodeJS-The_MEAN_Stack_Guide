@@ -14,7 +14,7 @@
             matInput
             type="text"
             name="title"
-            ngModel
+            [ngModel] = "post.title"
             required
             #title="ngModel"
             placeholder="Post Title"
