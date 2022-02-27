@@ -40,7 +40,7 @@ router.get('/:id', (req,res,next)=> {
 
 router.get("", (req, res, next) => {
   Post.find().then((documents) => {
-    console.log(documents);
+    //console.log(documents);
     return res.status(200).json({
       message: "Posts fetched succesfully",
       posts: documents,
