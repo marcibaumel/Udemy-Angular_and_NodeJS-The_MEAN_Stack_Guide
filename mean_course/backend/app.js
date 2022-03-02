@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -7,6 +8,7 @@ const postRoutes = require('./routes/posts');
 const app = express();
 
 app.use(bodyParser.json());
+app.use("/images", express.static(path.join("backend/images")))
 
 mongoose
   .connect("mongodb://localhost:27017/mean_course")
