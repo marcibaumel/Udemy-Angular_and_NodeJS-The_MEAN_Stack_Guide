@@ -15,12 +15,13 @@ export class PostListComponenet implements OnInit, OnDestroy {
   isLoading = false;
   totalPosts = 10;
   postsPerPage = 2;
+  currentPage = 1;
   pageSizeOptions = [1, 2, 5, 10];
   constructor(public postServices: PostServices) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.postServices.getPosts();
+    this.postServices.getPosts(this.postsPerPage, this.currentPage);
     this.postsSub = this.postServices
       .getPostUpdateListener()
       .subscribe((posts: Post[]) => {
@@ -30,7 +31,9 @@ export class PostListComponenet implements OnInit, OnDestroy {
   }
 
   onChangedPage(pageData: PageEvent){
-    console.log(pageData);
+    this.currentPage = pageData.pageIndex+1;
+    this.postsPerPage = pageData.pageSize;
+    this.postServices.getPosts(this.postsPerPage, this.currentPage);
   }
 
   onDelete(postId: string) {
