@@ -84,7 +84,14 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.get("", (req, res, next) => {
-  Post.find().then((documents) => {
+  const pageSize = +req.query.pagesize;
+  const page = +req.query.page;
+  const postQuery = Post.find();
+
+  if (pageSize && page) {
+    postQuery.skip(pageSize * (page - 1)).limit(pageSize);
+  }
+  postQuery.then((documents) => {
     return res.status(200).json({
       message: "Posts fetched succesfully",
       posts: documents,
