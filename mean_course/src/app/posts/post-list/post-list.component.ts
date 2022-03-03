@@ -24,16 +24,16 @@ export class PostListComponenet implements OnInit, OnDestroy {
     this.postServices.getPosts(this.postsPerPage, this.currentPage);
     this.postsSub = this.postServices
       .getPostUpdateListener()
-      .subscribe((postData: {posts: Post[], postCount:number}) => {
+      .subscribe((postData: { posts: Post[]; postCount: number }) => {
         this.isLoading = false;
         this.totalPosts = postData.postCount;
         this.posts = postData.posts;
       });
   }
 
-  onChangedPage(pageData: PageEvent){
+  onChangedPage(pageData: PageEvent) {
     this.isLoading = true;
-    this.currentPage = pageData.pageIndex+1;
+    this.currentPage = pageData.pageIndex + 1;
     this.postsPerPage = pageData.pageSize;
     this.postServices.getPosts(this.postsPerPage, this.currentPage);
   }
@@ -48,6 +48,4 @@ export class PostListComponenet implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.postsSub.unsubscribe();
   }
-
-
 }
