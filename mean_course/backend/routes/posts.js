@@ -100,7 +100,7 @@ router.get("", (req, res, next) => {
       return res.status(200).json({
         message: "Posts fetched succesfully",
         posts: fetchedPosts,
-        maxPosts: count
+        maxPosts: count,
       });
     });
 });
