@@ -87,16 +87,22 @@ router.get("", (req, res, next) => {
   const pageSize = +req.query.pagesize;
   const page = +req.query.page;
   const postQuery = Post.find();
-
+  let fetchedPosts;
   if (pageSize && page) {
     postQuery.skip(pageSize * (page - 1)).limit(pageSize);
   }
-  postQuery.then((documents) => {
-    return res.status(200).json({
-      message: "Posts fetched succesfully",
-      posts: documents,
+  postQuery
+    .then((documents) => {
+      fetchedPosts = documents;
+      return Post.count();
+    })
+    .then((count) => {
+      return res.status(200).json({
+        message: "Posts fetched succesfully",
+        posts: fetchedPosts,
+        maxPosts: count
+      });
     });
-  });
 });
 
 router.delete("/:id", (req, res, next) => {
