@@ -12,7 +12,7 @@ export class SignupComponenet {
   constructor(public authService: AuthService) {}
 
   onSignup(form: NgForm) {
-    if(form.invalid){
+    if (form.invalid) {
       return;
     }
     this.authService.creatUser(form.value.email, form.value.password);
