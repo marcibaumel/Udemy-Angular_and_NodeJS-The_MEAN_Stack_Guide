@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { PostListComponenet } from './posts/post-list/post-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponenet } from './auth/login/login.component';
 import { SignupComponenet } from './auth/signup/signup.component';
+import { AuthInterceptor } from './auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { SignupComponenet } from './auth/signup/signup.component';
     HttpClientModule,
     MatPaginatorModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+//test323@test.com
