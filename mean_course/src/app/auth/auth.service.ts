@@ -1,37 +1,48 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Subject } from "rxjs";
-import { AuthData } from "./auth-data.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { AuthData } from './auth-data.model';
 
-@Injectable({providedIn: "root"})
-export class AuthService{
-
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  private isAuthenticated = false;
   private token: string;
   private authStatusListener = new Subject<boolean>();
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {}
 
-  getToken(){
+  getToken() {
     return this.token;
   }
 
-  getAuthStatusListnere(){
+  getIsAuth(){
+    return this.isAuthenticated;
+  }
+
+  getAuthStatusListnere() {
     return this.authStatusListener.asObservable();
   }
 
-  creatUser(email:string, password: string){
-    const authData: AuthData={email: email, password:password}
-    this.http.post("http://localhost:3000/api/user/signup", authData).subscribe(response => {
-      console.log(response);
-    })
+  creatUser(email: string, password: string) {
+    const authData: AuthData = { email: email, password: password };
+    this.http
+      .post('http://localhost:3000/api/user/signup', authData)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
-  login(email: string, password:string){
-    const authData: AuthData={email: email, password:password}
-    this.http.post<{token: string}>("http://localhost:3000/api/user/login", authData).subscribe(response => {
-      const token = response.token;
-      this.token = token;
-      this.authStatusListener.next(true);
-    })
+  login(email: string, password: string) {
+    const authData: AuthData = { email: email, password: password };
+    this.http
+      .post<{ token: string }>('http://localhost:3000/api/user/login', authData)
+      .subscribe((response) => {
+        const token = response.token;
+        this.token = token;
+        if (token) {
+          this.isAuthenticated = true;
+          this.authStatusListener.next(true);
+        }
+      });
   }
 }
