@@ -64,15 +64,16 @@ router.put(
       imagePath = url + "/images/" + req.file.filename;
     }
 
-    const newPost = new Post({
+    const post = new Post({
       _id: req.body.id,
       title: req.body.title,
       content: req.body.content,
       imagePath: imagePath,
+      creator: req.userData.userId,
     });
     Post.updateOne(
       { _id: req.params.id, creator: req.userData.userId },
-      newPost
+      post
     ).then((result) => {
       if (result.modifiedCount > 0) {
         res.status(200).json({ message: "Update successful!" });
