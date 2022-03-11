@@ -25,8 +25,8 @@ export class PostServices {
                 title: post.title,
                 content: post.content,
                 id: post._id,
-              imagePath: post.imagePath,
-                creator: post.creator
+                imagePath: post.imagePath,
+                creator: post.creator,
               };
             }),
             maxPosts: postData.maxPosts,
@@ -67,7 +67,7 @@ export class PostServices {
         title: title,
         content: content,
         imagePath: image,
-        creator: null
+        creator: null,
       };
     }
     this.http

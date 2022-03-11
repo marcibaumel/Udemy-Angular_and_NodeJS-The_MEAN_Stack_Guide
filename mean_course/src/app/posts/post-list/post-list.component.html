@@ -8,7 +8,9 @@
       <img [src]="postElement.imagePath" [alt]="postElement.title" />
     </div>
     <p>{{ postElement.content }}</p>
-    <mat-action-row *ngIf="userIsAuthenticated && userId === postElement.creator">
+    <mat-action-row
+      *ngIf="userIsAuthenticated && userId === postElement.creator"
+    >
       <a mat-button color="primary" [routerLink]="['/edit', postElement.id]"
         >EDIT</a
       >
