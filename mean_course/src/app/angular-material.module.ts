@@ -9,16 +9,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-  imports: [
-    MatProgressSpinnerModule,
-    MatInputModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatExpansionModule,
-    MatPaginatorModule,
-    MatDialogModule
-  ],
   exports:[
     MatProgressSpinnerModule,
     MatInputModule,
