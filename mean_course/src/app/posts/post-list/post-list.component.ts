@@ -16,7 +16,7 @@ export class PostListComponenet implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   isLoading = false;
   totalPosts = 0;
-  postsPerPage = 2;
+  postsPerPage = 5;
   currentPage = 1;
   pageSizeOptions = [1, 2, 5, 10];
   userId: string;
