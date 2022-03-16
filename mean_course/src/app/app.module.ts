@@ -8,30 +8,27 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponenet } from './auth/login/login.component';
-import { SignupComponenet } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
 import { ErrorComponenet } from 'src/error/error.componenet';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/post.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponenet,
-    SignupComponenet,
     ErrorComponenet
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    PostsModule
+    PostsModule,
+    AuthModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
