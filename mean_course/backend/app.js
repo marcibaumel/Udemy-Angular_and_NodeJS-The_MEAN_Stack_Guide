@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static(path.join("backend/images")))
 
 mongoose
-  .connect("mongodb://localhost:27017/mean_course")
+  .connect(process.env.MONGO_PATH)
   .then(() => {
     console.log("Connected to the DB");
   })
