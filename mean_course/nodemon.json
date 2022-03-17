@@ -1,6 +1,6 @@
 {
   "env": {
-    "MONGO_PATH":"mongodb://localhost:27017/mean_course",
+    "MONGO_PATH": "mongodb://localhost:27017/mean_course",
     "JWT_KEY": "secret_this_should_be_longer"
   }
 }
