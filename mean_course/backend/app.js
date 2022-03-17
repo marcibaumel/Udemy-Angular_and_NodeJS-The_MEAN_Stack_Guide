@@ -3,15 +3,13 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const postRoutes = require('./routes/posts');
-const userRoutes = require('./routes/user');
-
-
+const postRoutes = require("./routes/posts");
+const userRoutes = require("./routes/user");
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use("/images", express.static(path.join("backend/images")))
+app.use("/images", express.static(path.join("backend/images")));
 
 mongoose
   .connect(process.env.MONGO_PATH)

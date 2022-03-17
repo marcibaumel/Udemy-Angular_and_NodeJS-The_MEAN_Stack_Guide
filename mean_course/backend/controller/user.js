@@ -23,7 +23,7 @@ exports.createUser = (req, res, next) => {
         });
       });
   });
-}
+};
 
 exports.userLogin = (req, res, next) => {
   let fecthedUser;
@@ -60,4 +60,4 @@ exports.userLogin = (req, res, next) => {
         message: "Invalid authenticaion creditentails",
       });
     });
-}
+};
